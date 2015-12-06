@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="pedidos pendientes por entregar"
+        android:text="Pedidos pendientes por entregar"
         android:id="@+id/resultado1"
         android:layout_below="@+id/Codigo"
         android:layout_centerHorizontal="true"

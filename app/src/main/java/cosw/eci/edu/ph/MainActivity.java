@@ -171,6 +171,7 @@ public class MainActivity extends ActionBarActivity  {
         HttpGet del;
         HttpResponse resp;
         String respStr;
+        String nombre;
         int idPaciente;
 
         @Override
@@ -181,6 +182,7 @@ public class MainActivity extends ActionBarActivity  {
                 respStr = EntityUtils.toString(resp.getEntity());
                 respJSON = new JSONObject(respStr);
                 idPaciente = respJSON.getInt("idPacientes");
+                nombre = respJSON.getString("nombre");
             } catch (Exception ex) {
                 Log.e("ServicioRest", "Error!", ex);
             }
@@ -191,7 +193,7 @@ public class MainActivity extends ActionBarActivity  {
         protected void onPostExecute(Void result) {
             TextView resultado = (TextView) findViewById(R.id.resultado);
             if (idPaciente != 0) {
-                resultado.setText(idPaciente + "");
+                resultado.setText(idPaciente + "\n" +nombre);
 
                 String dr = "https://fast-wildwood-9614.herokuapp.com/rest/pedidos/paciente/" + idPaciente;
                 new MostrarPedido().execute(dr);
